@@ -67,18 +67,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="tp05EjercicioA.aspx" />
+    <Content Include="AgregarSucursal.aspx" />
+    <Content Include="ListarSucursal.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classConexion.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tp05EjercicioA.aspx.cs">
-      <DependentUpon>tp05EjercicioA.aspx</DependentUpon>
+    <Compile Include="Conexion.cs" />
+    <Compile Include="ListarSucursal.aspx.cs">
+      <DependentUpon>ListarSucursal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="tp05EjercicioA.aspx.designer.cs">
-      <DependentUpon>tp05EjercicioA.aspx</DependentUpon>
+    <Compile Include="ListarSucursal.aspx.designer.cs">
+      <DependentUpon>ListarSucursal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AgregarSucursal.aspx.cs">
+      <DependentUpon>AgregarSucursal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarSucursal.aspx.designer.cs">
+      <DependentUpon>AgregarSucursal.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
