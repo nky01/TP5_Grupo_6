@@ -67,10 +67,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="tp05EjercicioA.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classConexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tp05EjercicioA.aspx.cs">
+      <DependentUpon>tp05EjercicioA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tp05EjercicioA.aspx.designer.cs">
+      <DependentUpon>tp05EjercicioA.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
