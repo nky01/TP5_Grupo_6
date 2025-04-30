@@ -15,8 +15,31 @@ namespace TP5_Grupo_6
 		Conexion conexion = new Conexion();
 		protected void Page_Load(object sender, EventArgs e)
 		{
-		
-		}
+            if (!IsPostBack) { 
+                
+                consultaSQL = "SELECT * FROM Provincia";
+
+                conexion = new Conexion();
+                conexion.Conectar();
+
+                SqlDataReader reader = conexion.EjecutarConsulta(consultaSQL);
+                if (reader != null)
+                 {
+                ddlProvincia.Items.Clear();
+                ddlProvincia.Items.Add(new ListItem("-- Seleccione una provincia --", ""));
+
+                while (reader.Read())
+                {
+                    string nombreprovincia = reader["DescripcionProvincia"].ToString();
+                    ddlProvincia.Items.Add(new ListItem(nombreprovincia, ""));
+                }
+                reader.Close();
+                 }
+
+            conexion.Cerrar(); 
+            }
+           
+        }
 
         protected void buttonAceptar_Click(object sender, EventArgs e)
         {
