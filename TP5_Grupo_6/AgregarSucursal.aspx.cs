@@ -26,12 +26,13 @@ namespace TP5_Grupo_6
                 if (reader != null)
                  {
                 ddlProvincia.Items.Clear();
-                ddlProvincia.Items.Add(new ListItem("-- Seleccione una provincia --", ""));
+                ddlProvincia.Items.Add(new ListItem("-- Seleccione una provincia --", "0"));
 
                 while (reader.Read())
                 {
                     string nombreprovincia = reader["DescripcionProvincia"].ToString();
-                    ddlProvincia.Items.Add(new ListItem(nombreprovincia, ""));
+                    string idProvincia = reader["Id_Provincia"].ToString();
+                    ddlProvincia.Items.Add(new ListItem(nombreprovincia, idProvincia));
                 }
                 reader.Close();
                  }
@@ -43,9 +44,8 @@ namespace TP5_Grupo_6
 
         protected void buttonAceptar_Click(object sender, EventArgs e)
         {
-			consultaSQL = "INSERT Sucursal (NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) VALUES ('" + txtNombre.Text + "', '" + txtDescripcion.Text + "'," + ddlProvincia.SelectedValue + ",'" + txtDireccion.Text + "')";
-			filaAfectada = conexion.SucursalAltaBaja(consultaSQL);
-
+			consultaSQL = "INSERT INTO Sucursal (NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) VALUES ('" + txtNombre.Text + "', '" + txtDescripcion.Text + "'," + ddlProvincia.SelectedValue + ",'" + txtDireccion.Text + "')";
+            conexion.agregarSucursal(consultaSQL);
         }
     }
 }

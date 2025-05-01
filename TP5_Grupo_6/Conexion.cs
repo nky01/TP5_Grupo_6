@@ -9,7 +9,7 @@ namespace TP5_Grupo_6
 {
     public class Conexion
     {
-        private const string cadenaConexion = "Data Source=localhost\\sqlexpress;Initial Catalog=BDSucursales;Integrated Security=True;Encrypt=False";
+        private const string cadenaConexion = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=BDSucursales;Integrated Security=True";
         private SqlConnection sqlConnection;
 
         public SqlConnection Conectar()
@@ -54,6 +54,16 @@ namespace TP5_Grupo_6
             SqlCommand comando = new SqlCommand(consultaSQL, Conectar());
             int filasAfectadas = comando.ExecuteNonQuery();
             return filasAfectadas;
+        }
+
+        public int agregarSucursal(string consultaSQL)
+        {
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand(consultaSQL,conexion);
+                return comando.ExecuteNonQuery();
+            }
         }
     }
 }
