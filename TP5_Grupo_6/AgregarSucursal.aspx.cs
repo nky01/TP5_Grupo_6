@@ -44,8 +44,19 @@ namespace TP5_Grupo_6
 
         protected void buttonAceptar_Click(object sender, EventArgs e)
         {
+
+
 			consultaSQL = "INSERT INTO Sucursal (NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) VALUES ('" + txtNombre.Text + "', '" + txtDescripcion.Text + "'," + ddlProvincia.SelectedValue + ",'" + txtDireccion.Text + "')";
             conexion.agregarSucursal(consultaSQL);
+
+            //se reinician los campos
+            txtNombre.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            ddlProvincia.SelectedIndex = 0;
+            //se muestra el texto
+            lblExito.Visible = true;
+
         }
     }
 }
