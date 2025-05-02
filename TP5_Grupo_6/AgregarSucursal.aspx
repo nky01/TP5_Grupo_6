@@ -17,7 +17,7 @@
             height: 61px;
         }
         .auto-style11 {
-            width: 226px;
+            width: 143px;
             height: 61px;
         }
         .auto-style12 {
@@ -28,7 +28,7 @@
             height: 29px;
         }
         .auto-style14 {
-            width: 226px;
+            width: 143px;
             height: 29px;
         }
         .auto-style15 {
@@ -39,7 +39,7 @@
             height: 47px;
         }
         .auto-style17 {
-            width: 226px;
+            width: 143px;
             height: 47px;
         }
         .auto-style18 {
@@ -81,6 +81,7 @@
                         <asp:HyperLink ID="hlListadoSucursales" runat="server" NavigateUrl="~/ListarSucursal.aspx">Listado de Sucursales</asp:HyperLink>
                     </td>
                     <td class="auto-style15">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:HyperLink ID="hlEliminarSucursal" runat="server" NavigateUrl="~/EliminarSucursal.aspx" >Eliminar Sucursal</asp:HyperLink>
                     </td>
                     <td class="auto-style15"></td>
@@ -181,13 +182,11 @@
                 </tr>
                 <tr>
                     <td class="auto-style21"></td>
-                    <td class="auto-style16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td class="auto-style18" colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnAceptar" runat="server" OnClick="buttonAceptar_Click" Text="Aceptar" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblExito" runat="server" Text="La sucursal se ha agregado con éxito" Visible="False" ForeColor="Green"></asp:Label>
                     </td>
-                    <td class="auto-style17">
-                        <asp:Label ID="lblExito" runat="server" Text="La sucursal se ha agregado con éxito" Visible="False"></asp:Label>
-                    </td>
-                    <td class="auto-style18"></td>
                     <td class="auto-style18"></td>
                     <td class="auto-style18"></td>
                     <td class="auto-style18"></td>

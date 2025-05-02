@@ -11,7 +11,6 @@ namespace TP5_Grupo_6
 	public partial class tp05EjercicioA : System.Web.UI.Page
 	{
 		string consultaSQL;
-		int filaAfectada;
 		Conexion conexion = new Conexion();
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -26,7 +25,7 @@ namespace TP5_Grupo_6
                 if (reader != null)
                  {
                 ddlProvincia.Items.Clear();
-                ddlProvincia.Items.Add(new ListItem("-- Seleccione una provincia --", "0"));
+                ddlProvincia.Items.Add(new ListItem("--Seleccionar--", "0"));
 
                 while (reader.Read())
                 {
@@ -44,8 +43,6 @@ namespace TP5_Grupo_6
 
         protected void buttonAceptar_Click(object sender, EventArgs e)
         {
-
-
 			consultaSQL = "INSERT INTO Sucursal (NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) VALUES ('" + txtNombre.Text + "', '" + txtDescripcion.Text + "'," + ddlProvincia.SelectedValue + ",'" + txtDireccion.Text + "')";
             conexion.agregarSucursal(consultaSQL);
 
@@ -56,7 +53,6 @@ namespace TP5_Grupo_6
             ddlProvincia.SelectedIndex = 0;
             //se muestra el texto
             lblExito.Visible = true;
-
         }
     }
 }
