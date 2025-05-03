@@ -17,7 +17,7 @@ namespace TP5_Grupo_6
         {
             if (!IsPostBack)
             {
-                mostrarSucursales();
+                conexion.mostrarTodasSucursales(gvSucursal);
             }
         }
 
@@ -29,28 +29,8 @@ namespace TP5_Grupo_6
 
         protected void btnMostrarTodos_Click(object sender, EventArgs e)
         {
-            mostrarSucursales();
+            conexion.mostrarTodasSucursales(gvSucursal);
             limpiarTextbox();
-        }
-
-        protected void mostrarSucursales()
-        {
-            consultasql = "SELECT Id_Sucursal, NombreSucursal, DescripcionSucursal, DescripcionProvincia, DireccionSucursal from Sucursal inner join Provincia on Id_ProvinciaSucursal = Id_Provincia";
-            conexion.Conectar();
-
-            SqlDataReader reader = conexion.EjecutarConsulta(consultasql);
-            if (reader != null)
-            {
-                DataTable tabla = new DataTable();
-                tabla.Load(reader);
-                reader.Close();
-                conexion.Cerrar();
-
-                gvSucursal.DataSource = tabla;
-                gvSucursal.DataBind();
-            }
-
-            conexion.Cerrar();
         }
 
         protected void limpiarTextbox()

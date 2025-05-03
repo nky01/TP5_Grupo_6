@@ -51,12 +51,6 @@ namespace TP5_Grupo_6
                 return null;
             }
         }
-        public int SucursalAltaBaja(string consultaSQL)
-        {
-            SqlCommand comando = new SqlCommand(consultaSQL, Conectar());
-            int filasAfectadas = comando.ExecuteNonQuery();
-            return filasAfectadas;
-        }
 
         public int agregarSucursal(string consultaSQL)
         {
@@ -74,7 +68,15 @@ namespace TP5_Grupo_6
                              "FROM Sucursal s " +
                              "INNER JOIN Provincia p ON s.Id_ProvinciaSucursal = p.Id_Provincia " +
                              "WHERE s.Id_Sucursal = @Id_Sucursal";
-            int id = Convert.ToInt32(idSucursal.Text);
+
+            if(idSucursal.Text == string.Empty)
+            {
+                mostrarTodasSucursales(grillaSucursales);
+                return;
+            }
+
+            int id= Convert.ToInt32(idSucursal.Text);
+
 
             using(SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
@@ -95,5 +97,27 @@ namespace TP5_Grupo_6
                 
             }
         }
+
+        public void mostrarTodasSucursales(GridView gvSucursal)
+        {
+            string filtro = "SELECT Id_Sucursal, NombreSucursal, DescripcionSucursal, DescripcionProvincia, DireccionSucursal from Sucursal inner join Provincia on Id_ProvinciaSucursal = Id_Provincia";
+
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand(filtro, conexion);
+                SqlDataReader reader =comando.ExecuteReader();
+                if (reader != null)
+                {
+                    DataTable tabla = new DataTable();
+                    tabla.Load(reader);
+                    reader.Close();
+
+                    gvSucursal.DataSource = tabla;
+                    gvSucursal.DataBind();
+                }
+            }
+        }
+
     }
 }
