@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListarSucursal.aspx.cs" Inherits="TP5_Grupo_6.ListadoSucursales" %>
+﻿    <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListarSucursal.aspx.cs" Inherits="TP5_Grupo_6.ListadoSucursales" %>
 
 <!DOCTYPE html>
 
@@ -60,12 +60,14 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
 &nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnMostrarTodos" runat="server" Text="Mostrar todos" />
+                        <asp:Button ID="btnMostrarTodos" runat="server" Text="Mostrar todos" OnClick="btnMostrarTodos_Click" />
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style25"></td>
-                    <td class="auto-style26"></td>
+                    <td class="auto-style26">
+                        <asp:RegularExpressionValidator ID="revSucursal" runat="server" ControlToValidate="txtBusqueda" ForeColor="Red" ValidationExpression="^[0-9,$]*$">Ingrese un numero de sucursal.</asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style24">
