@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Data;
+using System.Web.UI.WebControls;
+
 
 namespace TP5_Grupo_6
 {
@@ -63,6 +65,34 @@ namespace TP5_Grupo_6
                 conexion.Open();
                 SqlCommand comando = new SqlCommand(consultaSQL,conexion);
                 return comando.ExecuteNonQuery();
+            }
+        }
+
+        public void filtrarSucursal(GridView grillaSucursales, TextBox idSucursal)
+        {
+            string filtrar = "SELECT s.Id_Sucursal, s.NombreSucursal, s.DescripcionSucursal, p.DescripcionProvincia, s.DireccionSucursal " +
+                             "FROM Sucursal s " +
+                             "INNER JOIN Provincia p ON s.Id_ProvinciaSucursal = p.Id_Provincia " +
+                             "WHERE s.Id_Sucursal = @Id_Sucursal";
+            int id = Convert.ToInt32(idSucursal.Text);
+
+            using(SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand(filtrar, conexion);
+                comando.Parameters.AddWithValue("@Id_Sucursal", id);
+
+                SqlDataReader sucursalReader = comando.ExecuteReader();
+
+                DataTable tabla = new DataTable();
+                tabla.Load(sucursalReader);
+
+                grillaSucursales.DataSource = tabla;
+                grillaSucursales.DataBind();
+
+                sucursalReader.Close();
+
+                
             }
         }
     }

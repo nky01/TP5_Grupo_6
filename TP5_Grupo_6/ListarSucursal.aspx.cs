@@ -12,14 +12,14 @@ namespace TP5_Grupo_6
     public partial class ListadoSucursales : System.Web.UI.Page
     {
         string consultasql;
-        private Conexion conexion;
+        private Conexion conexion = new Conexion();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 consultasql = "SELECT Id_Sucursal, NombreSucursal, DescripcionSucursal, DescripcionProvincia, DireccionSucursal from Sucursal inner join Provincia on Id_ProvinciaSucursal = Id_Provincia";
 
-                conexion = new Conexion();
+               
                 conexion.Conectar();
 
                 SqlDataReader reader = conexion.EjecutarConsulta(consultasql);
@@ -36,6 +36,11 @@ namespace TP5_Grupo_6
 
                 conexion.Cerrar();
             }
+        }
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            conexion.filtrarSucursal(gvSucursal, txtBusqueda);
         }
     }
 }

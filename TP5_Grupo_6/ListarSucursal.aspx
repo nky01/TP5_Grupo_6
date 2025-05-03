@@ -58,7 +58,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="txtBusqueda" runat="server" Width="245px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" />
+                        <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
 &nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnMostrarTodos" runat="server" Text="Mostrar todos" />
                     </td>
