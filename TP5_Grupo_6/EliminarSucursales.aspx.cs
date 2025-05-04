@@ -10,7 +10,7 @@ namespace TP5_Grupo_6
 {
     public partial class EliminarSucursal : System.Web.UI.Page
     {
-        private Conexion conexion;
+        private Conexion conexion = new Conexion();
         string consultasql;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -19,21 +19,18 @@ namespace TP5_Grupo_6
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            conexion = new Conexion();
-            string idsucursal = txtBusqueda.Text;
-            consultasql = "DELETE FROM Sucursal WHERE Id_Sucursal = " + idsucursal;
-
-
-            conexion.Conectar();
-            SqlCommand comando = new SqlCommand(consultasql, conexion.Conectar());
-            int filasAfectadas = comando.ExecuteNonQuery();
-            if (filasAfectadas == 0)
+            
+            if (conexion.eliminarSucursal(txtBusqueda.Text) == 0)
             {
+                txtBusqueda.Text = "";
                 lblInexistente.Text = "ID de sucursal inexistente.";
+                exitolbl.Text = "";
             }
             else
             {
+                txtBusqueda.Text = "";
                 exitolbl.Text = "Sucursal eliminada con éxito.";
+                lblInexistente.Text = "";
             }
         }
     }

@@ -119,5 +119,24 @@ namespace TP5_Grupo_6
             }
         }
 
+        public int eliminarSucursal(string IdSucursal)
+        {
+            if(int.TryParse(IdSucursal, out int Id_Sucursal))
+            {
+
+                string eliminar = "DELETE FROM Sucursal WHERE Id_Sucursal = @Id_Sucursal";
+                
+                using(SqlConnection conexion = new SqlConnection(cadenaConexion))
+                {
+                    conexion.Open();
+                    SqlCommand comando = new SqlCommand(eliminar, conexion);
+                    comando.Parameters.AddWithValue("@Id_Sucursal", Id_Sucursal);
+                    return comando.ExecuteNonQuery();
+                }
+            }
+            
+            return 0;
+        }
+
     }
 }
