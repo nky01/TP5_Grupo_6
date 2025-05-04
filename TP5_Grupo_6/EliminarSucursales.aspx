@@ -51,7 +51,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:HyperLink ID="hlListadoSucursales" runat="server" NavigateUrl="~/ListarSucursal.aspx">Listado de Sucursales</asp:HyperLink>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:HyperLink ID="hlEliminarSucursal" runat="server" NavigateUrl="~/EliminarSucursal.aspx" >Eliminar Sucursal</asp:HyperLink>
+                        <asp:HyperLink ID="hlEliminarSucursal" runat="server" NavigateUrl="~/EliminarSucursales.aspx" >Eliminar Sucursal</asp:HyperLink>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -69,7 +69,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="txtBusqueda" runat="server" Width="225px"></asp:TextBox>
 &nbsp;&nbsp;
-                        <asp:Button ID="Button1" runat="server" Text="Button" />
+                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
 &nbsp;&nbsp;&nbsp;
                         <asp:RequiredFieldValidator ID="rfvIDSucursal" runat="server" ControlToValidate="txtBusqueda" ForeColor="Red">* Ingresar ID Sucursal</asp:RequiredFieldValidator>
                         <br />
@@ -78,13 +78,17 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style17">&nbsp;</td>
+                    <td class="auto-style17">
+                        <asp:Label ID="exitolbl" runat="server"></asp:Label>
+                    </td>
                     <td class="auto-style22">&nbsp;</td>
                     <td class="auto-style16">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style17">&nbsp;</td>
+                    <td class="auto-style17">
+                        <asp:Label ID="lblInexistente" runat="server"></asp:Label>
+                    </td>
                     <td class="auto-style22">&nbsp;</td>
                     <td class="auto-style16">&nbsp;</td>
                     <td>&nbsp;</td>

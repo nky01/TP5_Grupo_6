@@ -82,7 +82,7 @@
                     </td>
                     <td class="auto-style15">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:HyperLink ID="hlEliminarSucursal" runat="server" NavigateUrl="~/EliminarSucursal.aspx" >Eliminar Sucursal</asp:HyperLink>
+                        <asp:HyperLink ID="hlEliminarSucursal" runat="server" NavigateUrl="~/EliminarSucursales.aspx" >Eliminar Sucursal</asp:HyperLink>
                     </td>
                     <td class="auto-style15"></td>
                     <td class="auto-style15"></td>
