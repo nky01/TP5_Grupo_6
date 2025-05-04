@@ -78,13 +78,13 @@ namespace TP5_Grupo_6
         protected global::System.Web.UI.WebControls.TextBox txtBusqueda;
 
         /// <summary>
-        /// Control Button1.
+        /// Control btnEliminar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnEliminar;
 
         /// <summary>
         /// Control rfvIDSucursal.
@@ -103,5 +103,14 @@ namespace TP5_Grupo_6
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revNumeros;
+
+        /// <summary>
+        /// Control exitolbl.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label exitolbl;
     }
 }
