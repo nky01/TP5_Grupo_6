@@ -64,7 +64,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style25"></td>
+                    <td class="auto-style25">
+                        <asp:Label ID="labelError" runat="server"></asp:Label>
+                    </td>
                     <td class="auto-style26">
                         <asp:RegularExpressionValidator ID="revSucursal" runat="server" ControlToValidate="txtBusqueda" ForeColor="Red" ValidationExpression="^[0-9,$]*$">Ingrese un numero de sucursal.</asp:RegularExpressionValidator>
                     </td>
