@@ -14,8 +14,7 @@ namespace TP5_Grupo_6
 		Conexion conexion = new Conexion();
 		protected void Page_Load(object sender, EventArgs e)
 		{
-            if (!IsPostBack) { 
-                
+            if (!IsPostBack) {
                 consultaSQL = "SELECT * FROM Provincia";
 
                 conexion = new Conexion();
@@ -36,13 +35,20 @@ namespace TP5_Grupo_6
                 reader.Close();
                  }
 
-            conexion.Cerrar(); 
+            conexion.Cerrar();
             }
            
         }
 
         protected void buttonAceptar_Click(object sender, EventArgs e)
         {
+            Page.Validate();
+            if (!Page.IsValid)
+            {
+                lblExito.Visible = false;
+                return;
+            }
+
 			consultaSQL = "INSERT INTO Sucursal (NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) VALUES ('" + txtNombre.Text + "', '" + txtDescripcion.Text + "'," + ddlProvincia.SelectedValue + ",'" + txtDireccion.Text + "')";
             conexion.agregarSucursal(consultaSQL);
 

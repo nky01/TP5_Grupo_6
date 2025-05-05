@@ -183,7 +183,7 @@
                 <tr>
                     <td class="auto-style21"></td>
                     <td class="auto-style18" colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnAceptar" runat="server" OnClick="buttonAceptar_Click" Text="Aceptar" />
+                        <asp:Button ID="btnAceptar" runat="server" OnClick="buttonAceptar_Click" Text="Aceptar" CausesValidation="False" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblExito" runat="server" Text="La sucursal se ha agregado con éxito" Visible="False" ForeColor="Green"></asp:Label>
                     </td>
