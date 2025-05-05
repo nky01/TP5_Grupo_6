@@ -24,11 +24,11 @@ namespace TP5_Grupo_6
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             conexion.filtrarSucursal(gvSucursal, txtBusqueda);
-            if(gvSucursal.Rows.Count == 0)
+            limpiarTextbox();
+            if (gvSucursal.Rows.Count == 0)
             {
                 labelError.Text = "La sucursal ingresada no existe.";
             }
-            limpiarTextbox();
         }
 
         protected void btnMostrarTodos_Click(object sender, EventArgs e)
@@ -40,6 +40,7 @@ namespace TP5_Grupo_6
         protected void limpiarTextbox()
         {
             txtBusqueda.Text = string.Empty;
+            labelError.Text = string.Empty;
         }
 
     }
